@@ -1,0 +1,71 @@
+/* =========================================
+   UMA PHOTO STUDIO — Design Tokens
+   variables.css
+   Luxury Dark Theme with Gold Accents
+   ========================================= */
+
+:root {
+  /* ---- Colors – Luxury Light Grey & Gold Theme ---- */
+  --bg-primary: #f5f5f3;        /* Chic light warm-grey background */
+  --bg-secondary: #eaeae8;      /* Slightly darker section contrast grey */
+  --bg-tertiary: #e2e2e0;       /* Mid-light grey for hover states or elements */
+  --bg-card: #ffffff;           /* Clean white cards to stand out beautifully */
+  --bg-glass: rgba(245, 245, 243, 0.85); /* Frosted warm-grey glass with high blur */
+  --bg-glass-light: rgba(0, 0, 0, 0.02); /* Extremely subtle tint */
+  --accent: #a38047;            /* Rich deep antique gold accent for high readability on grey */
+  --accent-hover: #8c6b37;      /* Elegant darker gold hover */
+  --accent-dark: #76592d;       /* Deep rich bronze gold for bold numbers and high contrast */
+  --accent-glow: rgba(163, 128, 71, 0.12); /* Dynamic gold box-shadow glow */
+  --text-primary: #1a1a1a;      /* Rich dark charcoal text for high premium readability */
+  --text-secondary: #5a5a58;    /* Sophisticated medium charcoal-grey */
+  --text-muted: #8e8e8c;        /* Subtle muted grey for metadata */
+  --white: #ffffff;
+  --black: #000000;
+  --border-color: rgba(181, 148, 91, 0.2); /* Soft luxury gold/grey border line */
+  --border-light: rgba(0, 0, 0, 0.08); /* Very subtle layout dividers */
+  --overlay-dark: rgba(0, 0, 0, 0.45); /* Dark screen for cover overlays to keep text readable */
+  --overlay-medium: rgba(0, 0, 0, 0.25); /* Medium screen overlay */
+  --success: #2e7d32;           /* Deep elegant green success (readable on light) */
+  --error: #d32f2f;             /* Strong readable red error */
+
+  /* ---- Typography ---- */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+
+  /* ---- Font sizes (fluid) ---- */
+  --fs-hero: clamp(3rem, 8vw, 7rem);
+  --fs-h1: clamp(2rem, 5vw, 4rem);
+  --fs-h2: clamp(1.5rem, 3vw, 2.5rem);
+  --fs-h3: clamp(1.2rem, 2vw, 1.8rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  /* ---- Spacing scale ---- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+  --space-3xl: 8rem;
+
+  /* ---- Layout ---- */
+  --max-width: 1400px;
+  --nav-height: 80px;
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+
+  /* ---- Transitions ---- */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s ease;
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 30px rgba(201, 169, 110, 0.15);
+}

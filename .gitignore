@@ -1,0 +1,17 @@
+# Local environment secrets
+.env
+
+# Large image backups (handled by Cloudinary CDN)
+images/
+
+# Cloudinary Sync Cache manifest
+.cloudinary_manifest.json
+
+# Local VS Code settings
+.vscode/
+
+# Node dependencies (if any)
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
