@@ -938,7 +938,7 @@ window.ALBUMS = {
 
 window.HERO_IMAGES = {
   home: 'images/01Covera.jpg',
-  homeMobile: 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/01Covera_mobile_qfxyy7.jpg', // Cloudinary mobile-only cover photo fallback
+  homeMobile: '01Covera_mobile.jpg', // Local mobile-only cover photo
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
   about: 'images/COVERcopy.jpg',
