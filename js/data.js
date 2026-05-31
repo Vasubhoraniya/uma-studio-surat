@@ -26,14 +26,14 @@ window.APP_DATA = {
     {
       name: 'Prakash Bhoraniya',
       phone: '+91 9879510130',
-      photo: 'images/pbhoraniya.png', // Drop photo into 'images/' named 'team-mnp.jpg'
+      photo: 'images/pbhoraniya.jpg', // Drop photo into 'images/' named 'team-mnp.jpg'
       bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
     },
     {
       name: 'Jignesh Bhoraniya',
       phone: '+91 9979423322',
       photo: 'images/uma.jpg', // Drop photo into 'images/' named 'team-xyz.jpg'
-      bio: 'XYZ specializes in cinematic wedding films and creative outdoor photography, turning every event into a visual masterpiece.'
+      bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
     }
   ],
 
@@ -941,7 +941,7 @@ window.HERO_IMAGES = {
   homeMobile: '01Covera_mobile.jpg', // Local mobile-only cover photo
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
-  about: 'images/COVERcopy.jpg',
+  about: 'images/about-cover.jpg',
   contact: 'images/COVERcopy.jpg', // Mapped from missing hero-contact.jpg
   films: 'images/0 COVER/Film Page.jpg', // Mapped from missing FilmPage(1).jpg
   wedding: 'images/0 COVER/Wedding.jpg',

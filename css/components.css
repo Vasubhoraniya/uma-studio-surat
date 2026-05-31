@@ -1861,3 +1861,8 @@
     background-position: left center !important;
   }
 }
+
+/* Align the About page cover photo to the top to prevent it from being cut off from the upward side */
+#page-header-about {
+  background-position: top center !important;
+}
