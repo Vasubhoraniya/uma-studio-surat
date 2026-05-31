@@ -30,25 +30,11 @@
 
         <ul class="nav-links" id="nav-links">
           <li><a href="#/home" data-route="/home">Home</a></li>
-          <li class="nav-dropdown">
-            <a href="#/studio" data-route="/studio">Studio <span class="dropdown-arrow">▾</span></a>
-            <ul class="dropdown-menu">
-              ${categories.studio.subcategories.map(sub =>
-                `<li><a href="#/studio/${sub.id}" data-route="/studio/${sub.id}">${sub.name}</a></li>`
-              ).join('')}
-            </ul>
-          </li>
-          <li class="nav-dropdown">
-            <a href="#/outdoor" data-route="/outdoor">Outdoor <span class="dropdown-arrow">▾</span></a>
-            <ul class="dropdown-menu">
-              ${categories.outdoor.subcategories.map(sub =>
-                `<li><a href="#/outdoor/${sub.id}" data-route="/outdoor/${sub.id}">${sub.name}</a></li>`
-              ).join('')}
-            </ul>
-          </li>
+          <li><a href="#/studio" data-route="/studio">Studio (Born Baby, Toddler, Family)</a></li>
+          <li><a href="#/outdoor" data-route="/outdoor">Outdoor (Wedding, Pre-Wedding, Engagement, Child Shoot)</a></li>
           <li><a href="#/films" data-route="/films">Films</a></li>
-          <li><a href="#/about" data-route="/about">About</a></li>
-          <li><a href="#/contact" data-route="/contact">Contact</a></li>
+          <li><a href="#/about" data-route="/about">About Us</a></li>
+          <li><a href="#/contact" data-route="/contact">Contact Us</a></li>
         </ul>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
