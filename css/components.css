@@ -1849,9 +1849,9 @@
    RESPONSIVE COVER PHOTO FOCUS OVERRIDES (MOBILE)
    ============================================== */
 @media (max-width: 768px) {
-  /* Shift the Home page cover photo to focus on the bride/subject on the right */
+  /* Center the Home page cover photo (collage) on mobile */
   #home-hero .hero-bg {
-    background-position: 75% center !important;
+    background-position: center !important;
   }
 
   /* Shift the Studio page cover photo to focus on the left side (baby/kids) so it is not cut off */
