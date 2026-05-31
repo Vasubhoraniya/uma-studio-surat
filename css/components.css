@@ -1862,7 +1862,7 @@
   }
 }
 
-/* Align the About page cover photo to the top to prevent it from being cut off from the upward side */
+/* Shift the About page cover photo slightly downward to frame subjects beautifully while preventing upward crop */
 #page-header-about {
-  background-position: top center !important;
+  background-position: center 15% !important;
 }
