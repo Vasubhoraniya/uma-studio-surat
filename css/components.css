@@ -393,7 +393,7 @@
    PAGE HEADER (.page-header)
    ============================================== */
 .page-header {
-  height: 50vh;
+  height: 100vh;
   min-height: 350px;
   position: relative;
   overflow: hidden;
