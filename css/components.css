@@ -332,7 +332,7 @@
 
 .hero-subtitle {
   font-size: var(--fs-h3);
-  color: white
+  color: white;
   font-family: var(--font-accent);
   font-style: italic;
   letter-spacing: 2px;
@@ -788,49 +788,116 @@
 }
 
 /* ==============================================
-   PRELOADER (.preloader)
+   PRELOADER (.preloader) — Concept 4: Camera Shutter & Flash Reveal
    ============================================== */
 .preloader {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: var(--space-sm);
+  background: #0d0d0d; /* Solid premium dark luxury background */
+  pointer-events: all;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.camera-flash {
+  position: absolute;
+  inset: 0;
+  background: #ffffff; /* pure white flash canvas */
+  opacity: 0;
+  z-index: 1000;
+  pointer-events: none;
+  animation: cameraFlash 0.9s cubic-bezier(0.16, 1, 0.3, 1) 2.68s forwards;
+}
+
+.shutter-button {
+  position: absolute;
+  top: 3.5rem;
+  right: 3.5rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--accent); /* Luxurious gold camera button outline */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  opacity: 0;
+  animation: shutterEnter 0.6s cubic-bezier(0.25, 1, 0.5, 1) 1.6s forwards;
+}
+
+.shutter-inner {
+  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff; /* Metallic silver/white clicking core */
+  animation: shutterClick 0.5s ease 2.5s forwards;
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .preloader-logo {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: var(--accent);
-  letter-spacing: 6px;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  color: var(--accent); /* Elegant gold text logo */
+  font-weight: 700;
   text-transform: uppercase;
-  animation: preloaderFadeIn 1s ease forwards;
+  letter-spacing: 6px;
+  display: inline-block;
+  opacity: 0;
+  animation: preloaderLogoFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
 }
 
 .preloader-tagline {
-  color: var(--text-secondary);
-  font-size: var(--fs-xl);
+  color: rgba(255, 255, 255, 0.85); /* Brighter, high-contrast, premium silver-white tagline */
+  font-size: 1.05rem; /* Increased size for high laptop/desktop readability */
   letter-spacing: 4px;
+  font-weight: 300;
+  font-family: var(--font-body);
   text-transform: uppercase;
-  animation: preloaderFadeIn 1s ease 0.3s forwards;
+  margin-top: 1rem;
   opacity: 0;
+  animation: preloaderTaglineFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
 }
 
-.preloader-line {
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  margin-top: var(--space-sm);
-  animation: expandLine 1.5s ease 0.5s forwards;
-}
-
-.preloader.hide {
-  animation: preloaderSlideUp 0.6s ease 2.5s forwards;
+/* Preloader Exit Styles */
+.preloader.fade-out {
   pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease 0.2s, visibility 0.8s ease 0.2s; /* Seamlessly fade preloader out behind the flash */
+}
+
+.preloader.fade-out .preloader-content,
+.preloader.fade-out .shutter-button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .preloader-tagline {
+    font-size: 0.85rem !important; /* Muted smaller font size on mobile to prevent wrapping and look premium */
+    letter-spacing: 3px !important;
+  }
+
+  .shutter-button {
+    top: 2rem !important;
+    right: 2rem !important;
+  }
 }
 
 /* ==============================================

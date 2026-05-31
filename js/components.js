@@ -201,10 +201,13 @@
 
     return `
     <div class="preloader" id="preloader">
+      <div class="camera-flash" id="camera-flash"></div>
+      <div class="shutter-button" id="shutter-button">
+        <span class="shutter-inner"></span>
+      </div>
       <div class="preloader-content">
         ${logoMarkup}
         <div class="preloader-tagline">${data.tagline}</div>
-        <div class="preloader-line"></div>
       </div>
     </div>
     `;
@@ -273,8 +276,8 @@
         preloader.classList.add('fade-out');
         setTimeout(() => {
           preloader.remove();
-        }, 600);
-      }, 2200);
+        }, 1000);
+      }, 2700);
     }
 
     // Active nav link highlighting
