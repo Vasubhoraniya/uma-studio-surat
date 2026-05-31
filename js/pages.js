@@ -32,7 +32,12 @@ function findSubcategory(subcategoryId) {
 // ────────────────────────────────────────────────────────────
 window.renderPage.home = function () {
   const { studio, services, testimonials, stats } = window.APP_DATA;
-  const heroImg = window.HERO_IMAGES.home;
+  
+  // Dynamically load mobile-only cover if on a mobile viewport
+  const isMobile = window.innerWidth <= 768;
+  const heroImg = (isMobile && window.HERO_IMAGES.homeMobile) 
+    ? window.HERO_IMAGES.homeMobile 
+    : window.HERO_IMAGES.home;
 
   // Pick 4 featured albums from various subcategories
   const featuredPicks = [

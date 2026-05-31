@@ -938,6 +938,7 @@ window.ALBUMS = {
 
 window.HERO_IMAGES = {
   home: 'images/01Covera.jpg',
+  homeMobile: 'images/01Covera_mobile.jpg', // Dedicated mobile-only cover photo fallback
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
   about: 'images/COVERcopy.jpg',
