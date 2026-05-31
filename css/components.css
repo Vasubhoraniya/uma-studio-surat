@@ -1849,9 +1849,11 @@
    RESPONSIVE COVER PHOTO FOCUS OVERRIDES (MOBILE)
    ============================================== */
 @media (max-width: 768px) {
-  /* Center the Home page cover photo (collage) on mobile */
+  /* Center the Home page cover photo (collage) on mobile and ensure no side is cut off */
   #home-hero .hero-bg {
     background-position: center !important;
+    background-size: contain !important;
+    background-color: #000000 !important;
   }
 
   /* Shift the Studio page cover photo to focus on the left side (baby/kids) so it is not cut off */
