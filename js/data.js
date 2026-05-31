@@ -26,13 +26,13 @@ window.APP_DATA = {
     {
       name: 'Prakash Bhoraniya',
       phone: '+91 9879510130',
-      photo: 'images/pbhoraniya.jpg', // Drop photo into 'images/' named 'team-mnp.jpg'
+      photo: 'UMA_0304 copya.jpg', // Drop photo into 'images/' named 'team-mnp.jpg'
       bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
     },
     {
       name: 'Jignesh Bhoraniya',
       phone: '+91 9979423322',
-      photo: 'images/uma.jpg', // Drop photo into 'images/' named 'team-xyz.jpg'
+      photo: 'UMA_0363 copya.jpg', // Drop photo into 'images/' named 'team-xyz.jpg'
       bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
     }
   ],
