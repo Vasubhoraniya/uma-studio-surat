@@ -238,6 +238,7 @@
       hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
+        if (navbar) navbar.classList.toggle('active');
       });
 
       // Close menu when a link is clicked
@@ -245,6 +246,7 @@
         link.addEventListener('click', function () {
           hamburger.classList.remove('active');
           navLinks.classList.remove('active');
+          if (navbar) navbar.classList.remove('active');
         });
       });
     }

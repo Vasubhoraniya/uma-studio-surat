@@ -180,7 +180,7 @@ window.renderPage.studio = function () {
 
   return `
     <!-- Page Header -->
-    <section class="page-header" style="background-image: url('${heroImg}')">
+    <section class="page-header" id="page-header-studio" style="background-image: url('${heroImg}')">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1 class="hero-title">${category.name}</h1>

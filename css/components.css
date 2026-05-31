@@ -1407,6 +1407,17 @@
 
 /* ≤ 992px — Hamburger activates */
 @media (max-width: 992px) {
+  /* Expand parent navbar container to full screen when mobile menu is open to prevent backdrop filter clipping */
+  .navbar.active {
+    height: 100vh !important;
+    height: 100svh !important;
+    background: #111111 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -1729,4 +1740,19 @@
 
 .fade-in-img.loaded {
   opacity: 1;
+}
+
+/* ==============================================
+   RESPONSIVE COVER PHOTO FOCUS OVERRIDES (MOBILE)
+   ============================================== */
+@media (max-width: 768px) {
+  /* Shift the Home page cover photo to focus on the bride/subject on the right */
+  #home-hero .hero-bg {
+    background-position: 75% center !important;
+  }
+
+  /* Shift the Studio page cover photo to focus on the left side (baby/kids) so it is not cut off */
+  #page-header-studio {
+    background-position: left center !important;
+  }
 }
