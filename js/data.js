@@ -973,7 +973,7 @@ window.HERO_IMAGES = {
 // ============================================================
 window.CLOUDINARY_CONFIG = {
   cloudName: 'dnpihrazm', // Replace with your Cloudinary Cloud Name
-  enabled: false // Set to true once your photos are uploaded to Cloudinary!
+  enabled: true // Set to true once your photos are uploaded to Cloudinary!
 };
 
 (function() {
