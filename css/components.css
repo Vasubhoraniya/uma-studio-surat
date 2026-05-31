@@ -386,7 +386,7 @@
    PAGE HEADER (.page-header)
    ============================================== */
 .page-header {
-  height: 100vh;
+  height: 50vh;
   min-height: 350px;
   position: relative;
   overflow: hidden;
@@ -1508,8 +1508,8 @@
   }
 
   .page-header {
-    height: 100svh;
-    min-height: 280px;
+    height: 40vh;
+    min-height: 250px;
   }
 
   .album-grid {
