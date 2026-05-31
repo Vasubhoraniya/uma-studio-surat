@@ -1414,18 +1414,18 @@
   .nav-links {
     position: fixed;
     inset: 0;
-    background: var(--bg-glass);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: #111111; /* Sleek, solid, high-contrast luxury dark black */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.75rem; /* Tighter gap so everything fits beautifully without scrolling */
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
     z-index: 999;
+    padding: var(--space-2xl) var(--space-md);
+    overflow-y: auto; /* Enable scroll if dropdowns are fully expanded on small screens */
   }
 
   .nav-links.active {
@@ -1435,35 +1435,54 @@
   }
 
   .nav-links a {
-    font-size: 1.1rem;
+    color: #ffffff; /* Crisp white for high readability */
+    font-size: 1.15rem;
+    font-weight: 500;
     letter-spacing: 4px;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent); /* Luxurious gold hover/active state */
+  }
+
+  .nav-dropdown {
+    text-align: center;
   }
 
   .nav-dropdown .dropdown-menu {
     position: static;
     transform: none;
     min-width: auto;
-    background: transparent;
-    backdrop-filter: none;
-    border: none;
-    box-shadow: none;
+    background: rgba(255, 255, 255, 0.03); /* Lighter dark box for nested sub-menu layout */
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     opacity: 1;
     pointer-events: all;
     visibility: visible;
-    padding: 0.5rem 0 0;
-    margin-top: 0.5rem;
   }
 
   .dropdown-menu a {
     text-align: center;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-bottom: none;
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.65) !important; /* Muted white for secondary options */
+    letter-spacing: 2px;
   }
 
-  .dropdown-menu a:hover {
+  .dropdown-menu a:hover,
+  .dropdown-menu a.active {
+    color: var(--accent) !important;
     padding-left: 1rem;
+  }
+
+  /* Force hamburger active state to turn white so it is visible against the dark menu overlay */
+  .hamburger.active span {
+    background: #ffffff;
   }
 
   .album-grid {
