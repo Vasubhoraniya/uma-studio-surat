@@ -11,7 +11,7 @@ window.APP_DATA = {
     logo: 'UMA PHOTO STUDIO ', 
     phone: '+91 9879510130',
     email: 'umastudiosuart@gmail.com',
-    address: '9,10 - Shree Hari Shopping Center, Opp. Swastik Plaza, Yogi Chowk, Surat, Gujarat - 395010',
+    address: '9,10 - Shree Hari Shopping Center, Opp. Swastik Plaza, Yogi Chowk, Surat - 395010',
     // 💡 SOCIAL LINKS: Replace the '#' with your actual page links (e.g. 'https://instagram.com/myprofile')
     social: {
       instagram1: 'https://www.instagram.com/umawedding/',
@@ -938,7 +938,7 @@ window.ALBUMS = {
 
 window.HERO_IMAGES = {
   home: 'images/01Covera.jpg',
-  homeMobile: 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/01Covera_mobile.jpg', // Cloudinary mobile-only cover photo fallback
+  homeMobile: 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/01Covera_mobile_qfxyy7.jpg', // Cloudinary mobile-only cover photo fallback
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
   about: 'images/COVERcopy.jpg',

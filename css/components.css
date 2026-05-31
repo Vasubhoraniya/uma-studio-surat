@@ -852,7 +852,7 @@
 
 .preloader-logo {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
   color: var(--accent); /* Elegant gold text logo */
   font-weight: 700;
   text-transform: uppercase;

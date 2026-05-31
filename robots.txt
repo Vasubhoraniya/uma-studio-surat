@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://umaphotostudio.netlify.app/sitemap.xml
+Sitemap: https://vasubhoraniya.github.io/uma-studio-surat/sitemap.xml
