@@ -813,7 +813,7 @@
 
 .preloader-tagline {
   color: var(--text-secondary);
-  font-size: var(--fs-xs);
+  font-size: var(--fs-xl);
   letter-spacing: 4px;
   text-transform: uppercase;
   animation: preloaderFadeIn 1s ease 0.3s forwards;
