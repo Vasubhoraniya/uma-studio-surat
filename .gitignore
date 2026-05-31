@@ -15,10 +15,3 @@ node_modules/
 dist/
 .DS_Store
 Thumbs.db
-
-# Replaced high-res original DSLR assets (optimized and synced to Cloudinary)
-/02.jpg
-/COVER_copy.jpg
-/COVERcopy.jpg
-/UMA_0304 copya.jpg
-/UMA_0363 copya.jpg
