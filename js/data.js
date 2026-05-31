@@ -941,7 +941,7 @@ window.HERO_IMAGES = {
   homeMobile: '01Covera_mobile.jpg', // Local mobile-only cover photo
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
-  about: 'images/about-cover.jpg',
+  about: '02.jpg',
   contact: 'images/COVERcopy.jpg', // Mapped from missing hero-contact.jpg
   films: 'images/0 COVER/Film Page.jpg', // Mapped from missing FilmPage(1).jpg
   wedding: 'images/0 COVER/Wedding.jpg',
