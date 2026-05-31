@@ -33,6 +33,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: var(--nav-height);
 }
 
 /* -- Brand -- */
@@ -42,6 +43,8 @@
   align-items: flex-start;
   text-decoration: none;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1001;
 }
 
 .navbar-logo-text {
@@ -106,6 +109,27 @@
   padding: 0.25rem 0;
   transition: color var(--transition-fast);
   text-decoration: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-subtitle {
+  display: block;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 2px;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a:hover .nav-subtitle,
+.nav-links a.active .nav-subtitle {
+  color: var(--accent);
 }
 
 .nav-links a::after {
@@ -1416,6 +1440,11 @@
     -webkit-backdrop-filter: none !important;
     border-bottom-color: rgba(255, 255, 255, 0.05);
     overflow: hidden;
+    align-items: flex-start !important; /* Keep top header bar pinned at the top */
+  }
+
+  .navbar.active .container {
+    height: 80px; /* Keep container height standard when active */
   }
 
   .hamburger {
@@ -1429,14 +1458,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.75rem; /* Tighter gap so everything fits beautifully without scrolling */
+    gap: 1.5rem; /* Balanced gap for beautiful layout spacing */
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
     z-index: 999;
-    padding: var(--space-2xl) var(--space-md);
-    overflow-y: auto; /* Enable scroll if dropdowns are fully expanded on small screens */
+    padding: calc(80px + 2rem) var(--space-md) var(--space-lg); /* Padding clears the top logo and close button */
+    overflow-y: auto; /* Enable scroll if content is taller than screen */
   }
 
   .nav-links.active {
@@ -1447,10 +1476,23 @@
 
   .nav-links a {
     color: #ffffff; /* Crisp white for high readability */
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     transition: color var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-links a .nav-subtitle {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 1.2px;
+    font-weight: 400;
+    margin-top: 4px;
+    text-transform: uppercase;
   }
 
   .nav-links a:hover,
@@ -1617,6 +1659,16 @@
 @media (max-width: 576px) {
   .navbar {
     height: 64px;
+  }
+
+  .navbar .container,
+  .navbar.active .container {
+    height: 64px;
+  }
+
+  .nav-links {
+    padding: calc(64px + 2rem) var(--space-md) var(--space-lg);
+    gap: 1.25rem;
   }
 
   .navbar-logo-text {

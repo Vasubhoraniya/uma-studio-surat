@@ -30,8 +30,8 @@
 
         <ul class="nav-links" id="nav-links">
           <li><a href="#/home" data-route="/home">Home</a></li>
-          <li><a href="#/studio" data-route="/studio">Studio (Born Baby, Toddler, Family)</a></li>
-          <li><a href="#/outdoor" data-route="/outdoor">Outdoor (Wedding, Pre-Wedding, Engagement, Child Shoot)</a></li>
+          <li><a href="#/studio" data-route="/studio">Studio <span class="nav-subtitle">(Born Baby, Toddler, Family)</span></a></li>
+          <li><a href="#/outdoor" data-route="/outdoor">Outdoor <span class="nav-subtitle">(Wedding, Pre-Wedding, Engagement, Child Shoot)</span></a></li>
           <li><a href="#/films" data-route="/films">Films</a></li>
           <li><a href="#/about" data-route="/about">About Us</a></li>
           <li><a href="#/contact" data-route="/contact">Contact Us</a></li>

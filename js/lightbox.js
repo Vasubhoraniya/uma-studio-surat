@@ -143,6 +143,9 @@
 
     lightboxEl.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Push history state to capture browser back/swipe gestures
+    window.history.pushState({ lightbox: 'open' }, '');
   }
 
   /**
@@ -214,8 +217,9 @@
 
   /**
    * Close the lightbox
+   * @param {boolean} fromPopState - True if closed via browser history popstate event
    */
-  function close() {
+  function close(fromPopState) {
     if (!lightboxEl) return;
 
     isOpen = false;
@@ -227,7 +231,21 @@
       const img = document.getElementById('lightbox-img');
       if (img) img.src = '';
     }, 300);
+
+    // If closed manually, pop the pushed history state
+    if (!fromPopState) {
+      if (window.history.state && window.history.state.lightbox === 'open') {
+        window.history.back();
+      }
+    }
   }
+
+  // Close active lightbox if visitor clicks Android/mobile hardware back or swipes back
+  window.addEventListener('popstate', function (e) {
+    if (isOpen) {
+      close(true);
+    }
+  });
 
   // Expose globally
   window.Lightbox = { open, close, next, prev };
