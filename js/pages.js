@@ -265,7 +265,7 @@ window.renderPage.subcategory = function (categoryId, subcategoryId) {
   const heroImg = window.HERO_IMAGES[subcategoryId] || category.banner;
 
   // For studio category, display the photos directly (no folders/albums)
-  if (categoryId === 'studio' || subcategoryId === 'baby' || subcategoryId === 'maternity') {
+  if (categoryId === 'studio' || subcategoryId === 'baby') {
     const allPhotos = [];
     albums.forEach(album => {
       if (album.photos) {
@@ -492,7 +492,6 @@ window.renderPage.contact = function () {
     'Pre-Wedding Shoot',
     'Engagement',
     'Child Photoshoot',
-    'Maternity Shoot',
     'Couple Portraits',
     'Family Portraits',
     'Fashion / Editorial',

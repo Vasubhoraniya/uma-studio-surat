@@ -77,7 +77,7 @@ window.APP_DATA = {
     {  title: 'Wedding Photography', cover: 'images/0 COVER/6/Wedding Photography.jpg', desc: 'Capturing every precious moment of your special day with artistic elegance.' },
     {  title: 'Pre-Wedding', cover: 'images/0 COVER/6/Pre-Wedding_service.jpg', desc: 'Creative pre-wedding shoots at stunning locations of your choice.' },
     {  title: 'Baby & Kids', cover: 'images/0 COVER/Baby & Kids01.jpg', desc: 'Adorable portraits capturing the innocence and joy of little ones.' },
-    {  title: 'Maternity Shoots', cover: 'images/0 COVER/6/Maternity Shoots_service.jpg', desc: 'Celebrating the beautiful journey of motherhood with elegant portraits.' },
+    {  title: 'Family Photography', cover: 'images/STUDIO/FAMILY/19.jpg', desc: 'Heartwarming family portraits capturing your close bonds and beautiful smiles.' },
     {  title: 'Wedding Films', cover: 'images/0 COVER/Wedding Films.jpg', desc: 'Cinematic wedding films that tell your love story beautifully.' },
   ],
 
@@ -135,8 +135,7 @@ window.CATEGORIES = {
       { id: 'wedding', name: 'Wedding', cover: 'images/0 COVER/Wedding.jpg', description: 'Complete wedding day coverage' },
       { id: 'pre-wedding', name: 'Pre-Wedding', cover: 'images/0 COVER/pre-wedding.jpg', description: 'Creative pre-wedding photoshoots' },
       { id: 'engagement', name: 'Engagement', cover: 'images/0 COVER/Engagement.jpg', description: 'Beautiful engagement ceremony shoots' },
-      { id: 'baby', name: 'Child Photoshoot', cover: 'images/WED/BABYOUTDOOR/9.jpg', description: 'Adorable newborn and child photography' },
-      { id: 'maternity', name: 'Maternity Shoot', cover: 'images/0 COVER/5/Maternity Shoot.jpg', description: 'Elegant maternity photography' }
+      { id: 'baby', name: 'Child Photoshoot', cover: 'images/WED/BABYOUTDOOR/9.jpg', description: 'Adorable newborn and child photography' }
     ]
   }
 };
@@ -918,20 +917,6 @@ window.ALBUMS = {
     },
   ],
 
-  maternity: [
-    {
-      id: 'maternity-glow',
-      title: 'Radiant Glow',
-      cover: 'images/0 COVER/5/Maternity Shoot.jpg',
-      date: '2024',
-      description: 'Beautiful maternity photography',
-      photos: [
-        'images/0 COVER/Maternity Shoot.jpg',
-        'images/0 COVER/Maternity Shoots01.jpg'
-      ]
-    }
-  ],
-
   couple: [
     {
       id: 'couple-eternal',
@@ -962,7 +947,6 @@ window.HERO_IMAGES = {
   engagement: 'images/0 COVER/Engagement.jpg',
   'pre-wedding': 'images/0 COVER/pre-wedding.jpg',
   baby: 'images/WED/BABYOUTDOOR/9.jpg',
-  maternity: 'images/0 COVER/Maternity Shoot.jpg',
   portrait: 'images/STUDIO/BORN BABY/06.jpg',
   fashion: 'images/0 COVER/Toddler Photography.jpg',
   family: 'images/STUDIO/FAMILY/19.jpg'

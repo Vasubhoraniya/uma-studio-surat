@@ -122,8 +122,8 @@
               <li><a href="#/outdoor/pre-wedding">Pre-Wedding</a></li>
               <li><a href="#/outdoor/engagement">Engagement</a></li>
               <li><a href="#/outdoor/baby">Child Photoshoot</a></li>
-              <li><a href="#/outdoor/maternity">Maternity</a></li>
               <li><a href="#/studio/portrait">Born Baby Photography</a></li>
+              <li><a href="#/studio/family">Family Photography</a></li>
             </ul>
           </div>
 
