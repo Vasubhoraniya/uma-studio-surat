@@ -32,9 +32,6 @@
           <div class="lightbox-spinner"></div>
         </div>
       </div>
-      <a class="lightbox-download btn btn-outline btn-glass" id="lightbox-download" href="" download target="_blank" style="position: absolute; bottom: 4rem; left: 50%; transform: translateX(-50%); z-index: 10002; display: flex; align-items: center; gap: 8px; color: var(--accent); border-color: var(--accent); padding: 0.5rem 1.5rem; font-size: 0.75rem; text-decoration: none; border-radius: 4px; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);">
-        <i class="fa fa-download"></i> Download Original Quality
-      </a>
       <div class="lightbox-counter" id="lightbox-counter"></div>
     `;
     document.body.appendChild(div);
@@ -164,18 +161,6 @@
     if (counter) {
       counter.textContent = `${index + 1} / ${currentPhotos.length}`;
     }
-
-    // Update download button
-    const downloadBtn = document.getElementById('lightbox-download');
-    if (downloadBtn) {
-      const srcUrl = currentPhotos[index];
-      if (srcUrl.includes('cloudinary.com')) {
-        downloadBtn.href = srcUrl.replace('/q_auto,f_auto,w_1600/', '/');
-      } else {
-        downloadBtn.href = srcUrl;
-      }
-    }
-
     // Update prev/next visibility
     const prevBtn = document.getElementById('lightbox-prev');
     const nextBtn = document.getElementById('lightbox-next');
