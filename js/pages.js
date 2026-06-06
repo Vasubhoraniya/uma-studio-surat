@@ -379,12 +379,20 @@ window.renderPage.album = function (subcategoryId, albumId) {
     </div>
   `).join('');
 
+  // Check if the user came from the Home page
+  const prevRoute = (window.Router && typeof window.Router.getPreviousRoute === 'function')
+    ? window.Router.getPreviousRoute()
+    : '';
+  const isFromHome = (prevRoute === '/home' || prevRoute === 'home');
+  const backTarget = isFromHome ? '#/home' : `#/${catId}/${subcategoryId}`;
+  const backLabel = isFromHome ? '← Back to Home' : `← Back to ${subName}`;
+
   return `
     <!-- Album Header -->
     <section class="album-header">
       <div class="container">
-        <button class="album-back btn btn-outline" onclick="window.navigateTo('#/${catId}/${subcategoryId}')">
-          ← Back to ${subName}
+        <button class="album-back btn btn-outline" onclick="window.navigateTo('${backTarget}')">
+          ${backLabel}
         </button>
         <h1 class="section-title">${album.title}</h1>
         <p class="section-subtitle">${album.description}</p>

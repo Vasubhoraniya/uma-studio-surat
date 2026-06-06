@@ -8,6 +8,7 @@
 
   const routes = {};
   let currentRoute = null;
+  let previousRoute = null;
   let beforeNavigateHook = null;
   let afterNavigateHook = null;
 
@@ -106,12 +107,12 @@
    */
   function handleRouteChange() {
     const { path, segments } = parseHash();
-    const oldRoute = currentRoute;
+    previousRoute = currentRoute;
     currentRoute = path;
 
     // Run before-navigate hook
     if (beforeNavigateHook) {
-      beforeNavigateHook(path, oldRoute);
+      beforeNavigateHook(path, previousRoute);
     }
 
     // Find matching route
@@ -181,7 +182,8 @@
     parseHash,
     setBeforeNavigate,
     setAfterNavigate,
-    getCurrentRoute: () => currentRoute
+    getCurrentRoute: () => currentRoute,
+    getPreviousRoute: () => previousRoute
   };
 
   // Global navigation helper
