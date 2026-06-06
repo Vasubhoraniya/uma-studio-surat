@@ -1,0 +1,155 @@
+[
+  {
+    "key": "group_65a123fba1234",
+    "title": "Album Details",
+    "fields": [
+      {
+        "key": "field_65a1240ca1235",
+        "label": "Album Date",
+        "name": "album_date",
+        "type": "text",
+        "instructions": "Enter the year or date of the album (e.g. 2024)",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "2024",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_65a12429a1236",
+        "label": "Album Photos",
+        "name": "album_photos",
+        "type": "gallery",
+        "instructions": "Upload the photos for this gallery album. High-res images will be optimized automatically.",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "insert": "append",
+        "library": "all",
+        "min": "",
+        "max": "",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "album"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom metadata and photo gallery for studio and outdoor albums"
+  },
+  {
+    "key": "group_65a1250da2345",
+    "title": "Team Member Details",
+    "fields": [
+      {
+        "key": "field_65a1251da2346",
+        "label": "Team Member Phone",
+        "name": "team_member_phone",
+        "type": "text",
+        "instructions": "Enter the phone number with country code (e.g. +91 9879510130)",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "+91 9879510130",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "team_member"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Additional details for studio team members"
+  },
+  {
+    "key": "group_65a1260ea3456",
+    "title": "Film Details",
+    "fields": [
+      {
+        "key": "field_65a1261ea3457",
+        "label": "Film YouTube ID",
+        "name": "film_youtube_id",
+        "type": "text",
+        "instructions": "Enter the YouTube video ID from the URL (e.g. for 'youtube.com/watch?v=dQw4w9WgXcQ', the ID is 'dQw4w9WgXcQ')",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "dQw4w9WgXcQ",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "wedding_film"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "YouTube video integration details for cinematic wedding films"
+  }
+]
