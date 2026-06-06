@@ -24,7 +24,7 @@
 }
 
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.95);
+  background: var(--bg-glass);
   box-shadow: var(--shadow-sm);
 }
 

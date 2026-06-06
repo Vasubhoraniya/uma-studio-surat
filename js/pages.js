@@ -456,7 +456,7 @@ window.renderPage.about = function () {
             </center></p>
           </div>
           <div class="about-image reveal reveal-delay-2">
-            <img src="COVERcopy.jpg" alt="Our Studio" loading="lazy">
+            <img src="COVERcopy.webp" alt="Our Studio" loading="lazy">
           </div>
         </div>
       </div>
