@@ -1855,6 +1855,13 @@
     background-color: #000000 !important;
   }
 
+  /* Center the About page cover photo on mobile and ensure no side is cut off */
+  #page-header-about {
+    background-position: center !important;
+    background-size: contain !important;
+    background-color: #000000 !important;
+  }
+
   /* Shift the Studio page cover photo to focus on the left side (baby/kids) so it is not cut off */
   #page-header-studio {
     background-position: left center !important;
