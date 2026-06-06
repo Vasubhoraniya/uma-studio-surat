@@ -15,3 +15,12 @@ node_modules/
 dist/
 .DS_Store
 Thumbs.db
+
+# Root-level large camera files (synced to Cloudinary/moved to images/)
+/01Covera_mobile.jpg
+/02.jpg
+/COVER_copy.jpg
+/COVERcopy.jpg
+/UMA_0304 copya.jpg
+/UMA_0363 copya.jpg
+/*.webp

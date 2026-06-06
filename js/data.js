@@ -26,13 +26,13 @@ window.APP_DATA = {
     {
       name: 'Prakash Bhoraniya',
       phone: '+91 9879510130',
-      photo: 'UMA_0304 copya.webp', // Drop photo into 'images/' named 'team-mnp.jpg'
+      photo: 'images/UMA_0304 copya.webp', // Drop photo into 'images/' named 'team-mnp.jpg'
       bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
     },
     {
       name: 'Jignesh Bhoraniya',
       phone: '+91 9979423322',
-      photo: 'UMA_0363 copya.webp', // Drop photo into 'images/' named 'team-xyz.jpg'
+      photo: 'images/UMA_0363 copya.webp', // Drop photo into 'images/' named 'team-xyz.jpg'
       bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
     }
   ],
@@ -926,7 +926,7 @@ window.ALBUMS = {
       description: 'Romantic couple portrait session',
       photos: [
         'images/01Covera.jpg',
-        'images/COVERcopy.jpg'
+        'images/COVERcopy.webp'
       ]
     }
   ]
@@ -938,11 +938,12 @@ window.ALBUMS = {
 
 window.HERO_IMAGES = {
   home: 'images/01Covera.jpg',
-  homeMobile: '01Covera_mobile.jpg', // Local mobile-only cover photo
+  homeMobile: 'images/01Covera_mobile.webp', // Local mobile-only cover photo
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
-  about: '02.webp',
-  contact: 'images/COVERcopy.jpg', // Mapped from missing hero-contact.jpg
+  about: 'images/02.webp',
+  aboutStory: 'images/COVERcopy.webp',
+  contact: 'images/COVERcopy.webp', // Mapped from missing hero-contact.jpg
   films: 'images/0 COVER/Film Page.jpg', // Mapped from missing FilmPage(1).jpg
   wedding: 'images/0 COVER/Wedding.jpg',
   engagement: 'images/0 COVER/Engagement.jpg',
