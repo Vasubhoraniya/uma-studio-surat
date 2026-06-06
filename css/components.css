@@ -1855,19 +1855,13 @@
     background-color: #000000 !important;
   }
 
-  /* Focus the About page cover photo on the subject (right side) on mobile to prevent cropping */
-  #page-header-about {
-    background-position: 85% 15% !important;
-    background-size: cover !important;
-  }
-
   /* Shift the Studio page cover photo to focus on the left side (baby/kids) so it is not cut off */
   #page-header-studio {
     background-position: left center !important;
   }
 }
 
-/* Shift the About page cover photo slightly downward to frame subjects beautifully while preventing upward crop */
+/* Align the About page cover photo to the right-center to focus on the subject (Prakash Bhoraniya) without cropping */
 #page-header-about {
-  background-position: center 15% !important;
+  background-position: right center !important;
 }
