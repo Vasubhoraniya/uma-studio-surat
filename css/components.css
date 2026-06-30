@@ -1861,27 +1861,16 @@
   }
 }
 
-/* Align the About page cover photo to the right-center to focus on the subject */
+/* Align the About page cover photo to the right-center to focus on the subject (Prakash Bhoraniya) without cropping */
 #page-header-about {
   background-position: right center !important;
 }
 
-/* ── MOBILE FIX ───────────────────────────────────────────────────────────────
-   The navbar is position:fixed; top:0 with height var(--nav-height) = 80px.
-   The .page-header section starts at y=0 — its top 80px are BEHIND the navbar.
-   Adding margin-top equal to the navbar height pushes the section entirely
-   below the navbar so BOTH persons are fully visible with no head cropping.
-   ─────────────────────────────────────────────────────────────────────────── */
+/* On mobile: navbar is fixed (64px tall) and overlaps the top of .page-header.
+   'right 20%' shifts the image down so both persons appear below the navbar area,
+   fully visible without any head/top-body cropping. */
 @media (max-width: 768px) {
   #page-header-about {
-    margin-top: var(--nav-height) !important;  /* 80px — push below fixed navbar */
-    background-position: right center !important;
-  }
-}
-
-/* On phones ≤576px the navbar shrinks to 64px — match the margin */
-@media (max-width: 576px) {
-  #page-header-about {
-    margin-top: 64px !important;
+    background-position: right 20% !important;
   }
 }
