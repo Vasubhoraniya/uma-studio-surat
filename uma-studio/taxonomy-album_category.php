@@ -174,7 +174,50 @@ if ( $term_slug === 'portrait' ) {
                 </div>
                 <?php
             else :
-                echo '<p class="empty-message" style="text-align:center; color:var(--text-muted); padding: var(--space-xl) 0;">No photos in this category yet. Create an Album post and attach photos!</p>';
+                // Fallback: hardcoded Cloudinary photos per subcategory
+                $cdn = 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/';
+                $fallback_photos = array();
+
+                if ( $term_slug === 'portrait' ) {
+                    foreach ( array('01','02','03','04','05','07','08','09','10','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27') as $n ) {
+                        $fallback_photos[] = array( 'url' => $cdn . 'STUDIO/BORN_BABY/' . $n . '.jpg', 'alt' => 'Born Baby Photography ' . $n );
+                    }
+                } elseif ( $term_slug === 'fashion' ) {
+                    foreach ( array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','28','29','30','31','32','33','34','35','36') as $n ) {
+                        $fallback_photos[] = array( 'url' => $cdn . 'STUDIO/Todler/' . $n . '.jpg', 'alt' => 'Toddler Photography ' . $n );
+                    }
+                } elseif ( $term_slug === 'family' ) {
+                    foreach ( array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35') as $n ) {
+                        $fallback_photos[] = array( 'url' => $cdn . 'STUDIO/FAMILY/' . $n . '.jpg', 'alt' => 'Family Photography ' . $n );
+                    }
+                } elseif ( $term_slug === 'baby' ) {
+                    foreach ( array('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20') as $n ) {
+                        $fallback_photos[] = array( 'url' => $cdn . 'WED/BABYOUTDOOR/' . $n . '.jpg', 'alt' => 'Child Photoshoot ' . $n );
+                    }
+                }
+
+                if ( ! empty( $fallback_photos ) ) :
+                    ?>
+                    <div class="photo-grid" id="category-gallery-grid">
+                      <?php
+                      foreach ( $fallback_photos as $idx => $photo ) :
+                          ?>
+                          <div class="photo-card reveal reveal-delay-<?php echo esc_attr( ($idx % 3) + 1 ); ?>">
+                            <div class="photo-card-img shimmer-container">
+                              <img src="<?php echo esc_url( $photo['url'] ); ?>"
+                                   data-index="<?php echo esc_attr( $idx ); ?>"
+                                   class="gallery-image fade-in-img"
+                                   alt="<?php echo esc_attr( $photo['alt'] ); ?>"
+                                   loading="lazy"
+                                   onload="this.classList.add('loaded'); this.parentElement.classList.add('image-loaded');">
+                            </div>
+                          </div>
+                          <?php
+                      endforeach;
+                      ?>
+                    </div>
+                    <?php
+                endif;
             endif;
 
         else :
@@ -202,7 +245,52 @@ if ( $term_slug === 'portrait' ) {
                 </div>
                 <?php
             else :
-                echo '<p class="empty-message" style="text-align:center; color:var(--text-muted); padding: var(--space-xl) 0;">No albums found in this category. Add some in your dashboard!</p>';
+                // Fallback: hardcoded album cards from Cloudinary
+                $cdn = 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/';
+                $fallback_albums = array();
+
+                if ( $term_slug === 'wedding' ) {
+                    $fallback_albums = array(
+                        array( 'title' => 'PARTH & KRIPAL',    'img' => $cdn . 'WED/WEDD/Parth___Kripal/29.jpg' ),
+                        array( 'title' => 'DISHANT & SHIVANI', 'img' => $cdn . 'WED/WEDD/DISHANT___SHIVANI/0__49_.jpg' ),
+                        array( 'title' => 'JALDIP & GOPI',     'img' => $cdn . 'WED/WEDD/JALDIP____GOPI/15.jpg' ),
+                        array( 'title' => 'JAY & GRISHMA',     'img' => $cdn . 'WED/WEDD/JAY___GRISHMA/31.jpg' ),
+                        array( 'title' => 'ROMIK & ISHA',      'img' => $cdn . 'WED/WEDD/ROMIK___ISHA/13.jpg' ),
+                    );
+                } elseif ( $term_slug === 'pre-wedding' ) {
+                    $fallback_albums = array(
+                        array( 'title' => 'NEVIL & DRASHTI',   'img' => $cdn . 'WED/PRE/03/34.jpg' ),
+                        array( 'title' => 'MIHIR & RUDRAKSHI', 'img' => $cdn . 'WED/PRE/05/20.jpg' ),
+                        array( 'title' => 'JENIL & KRISHA',    'img' => $cdn . 'WED/PRE/06/39.jpg' ),
+                        array( 'title' => 'PARTH & PRINCY',    'img' => $cdn . 'WED/PRE/04/49.jpg' ),
+                    );
+                } elseif ( $term_slug === 'engagement' ) {
+                    $fallback_albums = array(
+                        array( 'title' => 'ISHAN & SHITAL', 'img' => $cdn . 'WED/ENG/Ishan___Shital/21.jpg' ),
+                        array( 'title' => 'OM & SURBHI',    'img' => $cdn . 'WED/ENG/Om___Surbhi/33.jpg' ),
+                    );
+                }
+
+                if ( ! empty( $fallback_albums ) ) :
+                    ?>
+                    <div class="album-grid">
+                      <?php
+                      foreach ( $fallback_albums as $fi => $fa ) :
+                          ?>
+                          <div class="album-card reveal reveal-delay-<?php echo esc_attr( ($fi % 3) + 1 ); ?>">
+                            <div class="album-card-img shimmer-container" style="width: 100%; height: 100%;">
+                              <img src="<?php echo esc_url( $fa['img'] ); ?>" alt="<?php echo esc_attr( $fa['title'] ); ?>" loading="lazy" class="fade-in-img" onload="this.classList.add('loaded'); this.parentElement.classList.add('image-loaded');">
+                            </div>
+                            <div class="album-card-overlay">
+                              <h3 class="album-card-title"><?php echo esc_html( $fa['title'] ); ?></h3>
+                            </div>
+                          </div>
+                          <?php
+                      endforeach;
+                      ?>
+                    </div>
+                    <?php
+                endif;
             endif;
 
         endif;

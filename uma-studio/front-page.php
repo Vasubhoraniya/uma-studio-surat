@@ -77,20 +77,24 @@ if ( has_post_thumbnail() ) {
           endwhile;
           wp_reset_postdata();
       else :
-          // Fallback static services if no posts exist yet
+          // Fallback static services with Cloudinary images
           $fallback_services = array(
-              array( 'title' => 'Born Baby Photography', 'desc' => 'Professional studio photography for newborn babies.' ),
-              array( 'title' => 'Wedding Photography', 'desc' => 'Capturing every precious moment of your special day.' ),
-              array( 'title' => 'Pre-Wedding', 'desc' => 'Creative pre-wedding shoots at stunning locations.' ),
+              array( 'title' => 'Born Baby Photography', 'desc' => 'Professional studio photography for adorable newborn babies.', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/0_COVER/Born_Baby_Photography01.jpg' ),
+              array( 'title' => 'Wedding Photography', 'desc' => 'Capturing every precious moment of your special day with artistic elegance.', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/0_COVER/6/Wedding_Photography.jpg' ),
+              array( 'title' => 'Pre-Wedding', 'desc' => 'Creative pre-wedding shoots at stunning locations of your choice.', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/0_COVER/6/Pre-Wedding_service.jpg' ),
+              array( 'title' => 'Baby & Kids', 'desc' => 'Adorable portraits capturing the innocence and joy of little ones.', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/0_COVER/Baby___Kids01.jpg' ),
+              array( 'title' => 'Family Photography', 'desc' => 'Heartwarming family portraits capturing your close bonds and beautiful smiles.', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/STUDIO/FAMILY/19.jpg' ),
+              array( 'title' => 'Wedding Films', 'desc' => 'Cinematic wedding films that tell your love story beautifully.', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/0_COVER/Wedding_Films.jpg' ),
           );
           foreach ( $fallback_services as $idx => $fs ) :
+              $delay = ( $idx < 3 ) ? 'reveal-delay-' . ($idx + 1) : 'reveal-delay-' . (($idx % 3) + 1);
               ?>
-              <div class="service-card glass-card reveal reveal-delay-<?php echo esc_attr( $idx + 1 ); ?>">
+              <div class="service-card glass-card reveal <?php echo esc_attr( $delay ); ?>">
                 <div class="service-card-header">
                   <h3><?php echo esc_html( $fs['title'] ); ?></h3>
                 </div>
                 <div class="service-card-img shimmer-container">
-                  <img src="<?php echo esc_url( get_template_directory_uri() . '/images/about-cover.jpg' ); ?>" class="fade-in-img" loading="lazy">
+                  <img src="<?php echo esc_url( $fs['img'] ); ?>" alt="<?php echo esc_attr( $fs['title'] ); ?>" class="fade-in-img" loading="lazy" onload="this.classList.add('loaded'); this.parentElement.classList.add('image-loaded');">
                 </div>
                 <p class="service-card-desc"><?php echo esc_html( $fs['desc'] ); ?></p>
               </div>
@@ -137,7 +141,25 @@ if ( has_post_thumbnail() ) {
           endwhile;
           wp_reset_postdata();
       else :
-          echo '<p class="reveal" style="text-align:center; color:var(--text-muted); width:100%;">No albums found. Add some in your dashboard!</p>';
+          // Fallback featured albums with Cloudinary images
+          $fallback_albums = array(
+              array( 'title' => 'PARTH & KRIPAL', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/WED/WEDD/Parth___Kripal/29.jpg', 'url' => home_url('/album-category/wedding/') ),
+              array( 'title' => 'NEVIL & DRASHTI', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/WED/PRE/03/34.jpg', 'url' => home_url('/album-category/pre-wedding/') ),
+              array( 'title' => 'Child Photoshoot', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/WED/BABYOUTDOOR/9.jpg', 'url' => home_url('/album-category/baby/') ),
+              array( 'title' => 'ISHAN & SHITAL', 'img' => 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_800/umaphotostudio/WED/ENG/Ishan___Shital/21.jpg', 'url' => home_url('/album-category/engagement/') ),
+          );
+          foreach ( $fallback_albums as $fi => $fa ) :
+              ?>
+              <a href="<?php echo esc_url( $fa['url'] ); ?>" class="album-card reveal reveal-delay-<?php echo esc_attr( ($fi % 3) + 1 ); ?>" style="text-decoration: none;">
+                <div class="album-card-img shimmer-container" style="width: 100%; height: 100%;">
+                  <img src="<?php echo esc_url( $fa['img'] ); ?>" alt="<?php echo esc_attr( $fa['title'] ); ?>" loading="lazy" class="fade-in-img" onload="this.classList.add('loaded'); this.parentElement.classList.add('image-loaded');">
+                </div>
+                <div class="album-card-overlay">
+                  <h3 class="album-card-title"><?php echo esc_html( $fa['title'] ); ?></h3>
+                </div>
+              </a>
+              <?php
+          endforeach;
       endif;
       ?>
     </div>
