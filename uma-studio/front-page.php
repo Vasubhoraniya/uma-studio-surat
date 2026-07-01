@@ -9,7 +9,7 @@ get_header();
 
 // Fetch Hero Images (dynamic Customizer overrides or fallback)
 $hero_bg_desktop = get_theme_mod( 'home_hero_desktop', 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_1600/umaphotostudio/01Covera.jpg' );
-$hero_bg_mobile  = get_theme_mod( 'home_hero_mobile', 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_1600/umaphotostudio/01Covera_mobile.webp' );
+$hero_bg_mobile  = get_theme_mod( 'home_hero_mobile', 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_1080/umaphotostudio/324_copy.jpg' );
 
 // If page has featured image, override the desktop hero background
 if ( has_post_thumbnail() ) {

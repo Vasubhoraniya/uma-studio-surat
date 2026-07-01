@@ -1866,10 +1866,11 @@
   background-position: right center !important;
 }
 
-/* On mobile: both persons are on the RIGHT side of the wide image.
-   'right top' anchors to top-right corner so heads are never cropped. */
+/* On mobile: use a portrait/square crop (0202.jpg) that shows both persons
+   perfectly centered — no cropping at all. Desktop keeps the wide 02.webp. */
 @media (max-width: 768px) {
   #page-header-about {
-    background-position: right top !important;
+    background-image: url('https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_1080/umaphotostudio/0202.jpg') !important;
+    background-position: center top !important;
   }
 }
