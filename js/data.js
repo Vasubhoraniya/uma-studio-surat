@@ -938,7 +938,7 @@ window.ALBUMS = {
 
 window.HERO_IMAGES = {
   home: 'images/01Covera.jpg',
-  homeMobile: 'images/01Covera_mobile.webp', // Local mobile-only cover photo
+  homeMobile: 'images/324 copy.jpg', // Local mobile-only cover photo
   studio: 'images/0 COVER/Born Baby Photography.jpg',
   outdoor: 'images/0 COVER/1WEDDINGCOVER.jpg',
   about: 'images/02.webp',
