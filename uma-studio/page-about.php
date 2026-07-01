@@ -8,7 +8,7 @@
 get_header();
 
 // Fetch About Hero background (with Customizer override or fallback)
-$about_hero_bg = get_theme_mod( 'about_hero_bg', 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_1600/umaphotostudio/02.webp' );
+$about_hero_bg = get_theme_mod( 'about_hero_bg', 'https://res.cloudinary.com/dnpihrazm/image/upload/q_auto,f_auto,w_1600/umaphotostudio/0202.jpg' );
 
 if ( has_post_thumbnail() ) {
     $about_hero_bg = get_the_post_thumbnail_url( get_the_ID(), 'full' );
