@@ -1866,11 +1866,10 @@
   background-position: right center !important;
 }
 
-/* On mobile: navbar is fixed (64px tall) and overlaps the top of .page-header.
-   'right 20%' shifts the image down so both persons appear below the navbar area,
-   fully visible without any head/top-body cropping. */
+/* On mobile: both persons are on the RIGHT side of the wide image.
+   'right top' anchors to top-right corner so heads are never cropped. */
 @media (max-width: 768px) {
   #page-header-about {
-    background-position: right 20% !important;
+    background-position: right top !important;
   }
 }
