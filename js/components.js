@@ -406,22 +406,30 @@
   };
 
   /**
-   * Contact form handling — powered by Formspree
+   * Contact form handling — Node.js / Express / Nodemailer
    */
   Components.initContactForm = function () {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
+    /* Track submission to prevent duplicates */
+    let isSubmitting = false;
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Simple validation
-      const name    = form.querySelector('[name="name"]');
-      const email   = form.querySelector('[name="email"]');
-      const phone   = form.querySelector('[name="phone"]');
-      const message = form.querySelector('[name="message"]');
-      const statusEl = document.getElementById('form-status');
+      /* Prevent duplicate submissions */
+      if (isSubmitting) return;
 
+      const name          = form.querySelector('[name="name"]');
+      const email         = form.querySelector('[name="email"]');
+      const phone         = form.querySelector('[name="phone"]');
+      const eventTypeField= form.querySelector('[name="event-type"]');
+      const message       = form.querySelector('[name="message"]');
+      const statusEl      = document.getElementById('form-status');
+      const submitBtn     = form.querySelector('.btn-primary');
+
+      /* ── Client-side validation ── */
       let isValid = true;
       [name, email, phone, message].forEach(field => {
         if (field && !field.value.trim()) {
@@ -432,103 +440,79 @@
         }
       });
 
-      // Email format validation
+      /* Email format */
       if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         email.classList.add('error');
         isValid = false;
       }
 
+      /* Event type not selected */
+      if (eventTypeField && !eventTypeField.value) {
+        eventTypeField.classList.add('error');
+        isValid = false;
+      }
+
       if (!isValid) {
-        if (statusEl) {
-          statusEl.innerHTML = '<p class="form-error">Please fill in all required fields correctly.</p>';
-        }
+        if (statusEl) statusEl.innerHTML = '<p class="form-error">Please fill in all required fields correctly.</p>';
         return;
       }
 
-      // Show sending state
-      const submitBtn = form.querySelector('.btn-primary');
-      if (submitBtn) {
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-      }
-      if (statusEl) statusEl.innerHTML = '';
+      /* ── Sending state ── */
+      isSubmitting = true;
+      if (submitBtn) { submitBtn.textContent = 'Sending...'; submitBtn.disabled = true; }
+      if (statusEl)  statusEl.innerHTML = '';
 
-      const eventTypeField = form.querySelector('[name="event-type"]');
-      const eventType = eventTypeField ? eventTypeField.value : 'General Inquiry';
-
-      // Send via Formspree
-      fetch('https://formspree.io/f/mkodvrpz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name.value,
-          email: email.value,
-          phone: phone.value,
-          eventType: eventType,
-          message: message.value,
-          _replyto: email.value,
-          _subject: `New Inquiry from ${name.value} - UMA Photo Studio`
+      /* ── POST to /send-enquiry ── */
+      fetch('/send-enquiry', {
+        method  : 'POST',
+        headers : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body    : JSON.stringify({
+          name          : name.value.trim(),
+          email         : email.value.trim(),
+          contactNumber : phone.value.trim(),
+          eventType     : eventTypeField ? eventTypeField.value : '',
+          message       : message.value.trim()
         })
       })
-      .then(function (response) { return response.json(); })
+      .then(function (res) { return res.json(); })
       .then(function (data) {
-        if (data.ok) {
-          if (statusEl) {
-            statusEl.innerHTML = '<p class="form-success">✅ Message sent successfully! We will get back to you soon.</p>';
-          }
+        if (data.success) {
+          if (statusEl) statusEl.innerHTML = '<p class="form-success">✅ Your enquiry has been sent successfully! We will get back to you soon.</p>';
           form.reset();
         } else {
-          const errMsg = (data.errors || []).map(function(e){ return e.message; }).join(', ');
-          if (statusEl) {
-            statusEl.innerHTML = '<p class="form-error">❌ ' + (errMsg || 'Something went wrong. Please try again.') + '</p>';
-          }
+          if (statusEl) statusEl.innerHTML = `<p class="form-error">❌ ${data.message || 'Something went wrong. Please try again.'}</p>`;
         }
       })
       .catch(function () {
-        if (statusEl) {
-          statusEl.innerHTML = '<p class="form-error">❌ Network error. Please check your connection and try again.</p>';
-        }
+        if (statusEl) statusEl.innerHTML = '<p class="form-error">❌ Network error. Please check your connection and try again.</p>';
       })
       .finally(function () {
-        if (submitBtn) {
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-        }
+        isSubmitting = false;
+        if (submitBtn) { submitBtn.textContent = 'Send Message'; submitBtn.disabled = false; }
       });
     });
 
-    // Remove error class on input
+    /* ── Remove error highlight on input ── */
     form.querySelectorAll('input, textarea, select').forEach(field => {
-      field.addEventListener('input', function () {
-        this.classList.remove('error');
-      });
+      field.addEventListener('input', function () { this.classList.remove('error'); });
     });
 
-    // Phone field: allow numbers only, max 10 digits
+    /* ── Phone field: numbers only, max 10 digits ── */
     const phoneField = form.querySelector('[name="phone"]');
     if (phoneField) {
-      // Block non-numeric keys
       phoneField.addEventListener('keypress', function (e) {
-        if (!/[0-9]/.test(e.key)) {
-          e.preventDefault();
-        }
+        if (!/[0-9]/.test(e.key)) e.preventDefault();
       });
-      // Block paste of non-numeric content
       phoneField.addEventListener('paste', function (e) {
         const pasted = (e.clipboardData || window.clipboardData).getData('text');
-        if (!/^[0-9]{1,10}$/.test(pasted)) {
-          e.preventDefault();
-        }
+        if (!/^[0-9]{1,10}$/.test(pasted)) e.preventDefault();
       });
-      // Strip non-numeric on input (handles autofill etc.)
       phoneField.addEventListener('input', function () {
         this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
       });
     }
   };
+
 
   // Expose globally
   window.Components = Components;
