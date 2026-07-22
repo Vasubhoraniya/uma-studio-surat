@@ -27,13 +27,13 @@ window.APP_DATA = {
       name: 'Prakash Bhoraniya',
       phone: '+91 9879510130',
       photo: 'images/UMA_0304 copya.webp', // Drop photo into 'images/' named 'team-mnp.jpg'
-      bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
+      bio: 'I started wedding photography in 1998.  we are giving best services to our clients.\n Photography is not just my profession—it is my passion. With over 25  years of experience behind the lens, I specialize in capturing genuine emotions and meaningful moments. My commitment to creativity, quality, and attention to detail allows me to create timeless images that tell a unique story.\n Professional photographer with 25+ years of experience in portrait, wedding, and event photography. Dedicated to creating timeless images through a blend of technical expertise and artistic vision.'
     },
     {
       name: 'Jignesh Bhoraniya',
       phone: '+91 9979423322',
       photo: 'images/UMA_0363 copya.webp', // Drop photo into 'images/' named 'team-xyz.jpg'
-      bio: 'With over 10 years of experience capturing life\'s most precious moments, MNP brings artistic vision and technical mastery to every shoot.'
+      bio: 'Photography has always been more than a job for me. Specializing in indoor and studio photography, I enjoy crafting images with careful attention to lighting, composition, and detail. I also welcome selected outdoor projects that allow me to explore different perspectives and creative opportunities.\n My goal is to create photographs that not only look beautiful but also tell a meaningful story. Every project is approached with professionalism, creativity, and a commitment to delivering images that clients can cherish for years to come.'
     }
   ],
 
