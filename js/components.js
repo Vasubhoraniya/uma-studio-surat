@@ -171,7 +171,7 @@
    */
   Components.floatingEnquiry = function () {
     return `
-    <a class="floating-enquiry" href="#/contact" id="floating-enquiry">
+    <a class="floating-enquiry" href="#/contact" id="floating-enquiry" onclick="window._scrollToForm = true;">
       <i class="fa fa-camera"></i>
       <span>Book Now</span>
     </a>
@@ -406,7 +406,7 @@
   };
 
   /**
-   * Contact form handling
+   * Contact form handling — powered by Formspree
    */
   Components.initContactForm = function () {
     const form = document.getElementById('contact-form');
@@ -416,9 +416,9 @@
       e.preventDefault();
 
       // Simple validation
-      const name = form.querySelector('[name="name"]');
-      const email = form.querySelector('[name="email"]');
-      const phone = form.querySelector('[name="phone"]');
+      const name    = form.querySelector('[name="name"]');
+      const email   = form.querySelector('[name="email"]');
+      const phone   = form.querySelector('[name="phone"]');
       const message = form.querySelector('[name="message"]');
       const statusEl = document.getElementById('form-status');
 
@@ -432,7 +432,7 @@
         }
       });
 
-      // Email validation
+      // Email format validation
       if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         email.classList.add('error');
         isValid = false;
@@ -445,48 +445,59 @@
         return;
       }
 
-      // Send form details via mailto using the studio's email defined in window.APP_DATA
+      // Show sending state
       const submitBtn = form.querySelector('.btn-primary');
       if (submitBtn) {
-        submitBtn.textContent = 'Opening Mail...';
+        submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
       }
+      if (statusEl) statusEl.innerHTML = '';
 
-      const studioEmail = window.APP_DATA?.studio?.email || 'pbhoraniya111@gmail.com';
       const eventTypeField = form.querySelector('[name="event-type"]');
       const eventType = eventTypeField ? eventTypeField.value : 'General Inquiry';
 
-      const subject = `New Inquiry from ${name.value} - UMA Photo Studio`;
-      const body = `Hello UMA Photo Studio,
-
-You have a new inquiry from your website contact form:
-
-👤 Name: ${name.value}
-📞 Phone: ${phone.value}
-📧 Email: ${email.value}
-📸 Event Type: ${eventType}
-
-💬 Message:
-${message.value}
-
-Best regards,
-${name.value}`;
-
-      const mailtoUrl = `mailto:${studioEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      setTimeout(() => {
-        // Trigger mail client
-        window.location.href = mailtoUrl;
-
-        if (statusEl) {
-          statusEl.innerHTML = '<p class="form-success">Opening your email app to send the details... Thank you!</p>';
+      // Send via Formspree
+      fetch('https://formspree.io/f/mkodvrpz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          phone: phone.value,
+          eventType: eventType,
+          message: message.value,
+          _replyto: email.value,
+          _subject: `New Inquiry from ${name.value} - UMA Photo Studio`
+        })
+      })
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        if (data.ok) {
+          if (statusEl) {
+            statusEl.innerHTML = '<p class="form-success">✅ Message sent successfully! We will get back to you soon.</p>';
+          }
+          form.reset();
+        } else {
+          const errMsg = (data.errors || []).map(function(e){ return e.message; }).join(', ');
+          if (statusEl) {
+            statusEl.innerHTML = '<p class="form-error">❌ ' + (errMsg || 'Something went wrong. Please try again.') + '</p>';
+          }
         }
-        form.reset();
+      })
+      .catch(function () {
+        if (statusEl) {
+          statusEl.innerHTML = '<p class="form-error">❌ Network error. Please check your connection and try again.</p>';
+        }
+      })
+      .finally(function () {
         if (submitBtn) {
           submitBtn.textContent = 'Send Message';
           submitBtn.disabled = false;
         }
-      }, 800);
+      });
     });
 
     // Remove error class on input
@@ -495,6 +506,28 @@ ${name.value}`;
         this.classList.remove('error');
       });
     });
+
+    // Phone field: allow numbers only, max 10 digits
+    const phoneField = form.querySelector('[name="phone"]');
+    if (phoneField) {
+      // Block non-numeric keys
+      phoneField.addEventListener('keypress', function (e) {
+        if (!/[0-9]/.test(e.key)) {
+          e.preventDefault();
+        }
+      });
+      // Block paste of non-numeric content
+      phoneField.addEventListener('paste', function (e) {
+        const pasted = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^[0-9]{1,10}$/.test(pasted)) {
+          e.preventDefault();
+        }
+      });
+      // Strip non-numeric on input (handles autofill etc.)
+      phoneField.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+      });
+    }
   };
 
   // Expose globally

@@ -567,7 +567,7 @@ window.renderPage.contact = function () {
               <div class="form-row">
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                  <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" required>
                 </div>
                 <div class="form-group">
                   <label for="event-type">Event Type</label>
@@ -581,6 +581,7 @@ window.renderPage.contact = function () {
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" placeholder="Tell us about your event, preferred dates, and any special requests..." required></textarea>
               </div>
+              <div id="form-status"></div>
               <button type="submit" class="btn btn-primary btn-block">Send Message</button>
             </form>
           </div>

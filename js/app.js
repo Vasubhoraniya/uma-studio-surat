@@ -150,6 +150,17 @@
 
         // Update page title
         updatePageTitle(route);
+
+        // If Book Now was clicked, scroll directly to the contact form
+        if (route === '/contact' && window._scrollToForm) {
+          window._scrollToForm = false;
+          const form = document.getElementById('contact-form');
+          if (form) {
+            setTimeout(() => {
+              form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          }
+        }
       }, 50);
     });
   }

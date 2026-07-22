@@ -10,7 +10,7 @@ window.APP_DATA = {
     // 💡 LOGO TIP: Put your logo in the images folder and write 'images/logo.png' (or whatever filename it has!)
     logo: 'UMA PHOTO STUDIO ', 
     phone: '+91 9879510130',
-    email: 'umastudiosuart@gmail.com',
+    email: 'hello.trashme@gmail.com',
     address: '9,10 - Shree Hari Shopping Center, Opp. Swastik Plaza, Yogi Chowk, Surat - 395010',
     // 💡 SOCIAL LINKS: Replace the '#' with your actual page links (e.g. 'https://instagram.com/myprofile')
     social: {
@@ -27,13 +27,13 @@ window.APP_DATA = {
       name: 'Prakash Bhoraniya',
       phone: '+91 9879510130',
       photo: 'images/UMA_0304 copya.webp', // Drop photo into 'images/' named 'team-mnp.jpg'
-      bio: 'I started wedding photography in 1998.  we are giving best services to our clients.\n Photography is not just my profession—it is my passion. With over 25  years of experience behind the lens, I specialize in capturing genuine emotions and meaningful moments. My commitment to creativity, quality, and attention to detail allows me to create timeless images that tell a unique story.\n Professional photographer with 25+ years of experience in portrait, wedding, and event photography. Dedicated to creating timeless images through a blend of technical expertise and artistic vision.'
+      bio: 'With over 25 years behind the camera, I have had the honour of capturing thousands of weddings, portraits, and special events. I believe every moment has a story, and my job is to preserve that story in the most beautiful way possible. I work with dedication and care so that every client gets photos they will be proud to show their family and friends.'
     },
     {
       name: 'Jignesh Bhoraniya',
       phone: '+91 9979423322',
       photo: 'images/UMA_0363 copya.webp', // Drop photo into 'images/' named 'team-xyz.jpg'
-      bio: 'Photography has always been more than a job for me. Specializing in indoor and studio photography, I enjoy crafting images with careful attention to lighting, composition, and detail. I also welcome selected outdoor projects that allow me to explore different perspectives and creative opportunities.\n My goal is to create photographs that not only look beautiful but also tell a meaningful story. Every project is approached with professionalism, creativity, and a commitment to delivering images that clients can cherish for years to come.'
+      bio: 'With years of experience in studio and indoor photography, I know how the right lighting and the perfect angle can completely change a photo. I give full attention to every small detail so that every picture comes out just right. I also take on selected outdoor shoots, which gives me a chance to explore new settings and creative ideas. My aim is always to make sure every client leaves happy with photos they truly love.'
     }
   ],
 

@@ -1394,8 +1394,8 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xl);
-  max-width: 800px;
+  gap: 3rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
