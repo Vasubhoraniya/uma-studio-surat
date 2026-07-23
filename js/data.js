@@ -10,7 +10,7 @@ window.APP_DATA = {
     // 💡 LOGO TIP: Put your logo in the images folder and write 'images/logo.png' (or whatever filename it has!)
     logo: 'UMA PHOTO STUDIO ', 
     phone: '+91 9879510130',
-    email: 'hello.trashme@gmail.com',
+    email: 'umastudiosurat@gmail.com',
     address: '9,10 - Shree Hari Shopping Center, Opp. Swastik Plaza, Yogi Chowk, Surat - 395010',
     // 💡 SOCIAL LINKS: Replace the '#' with your actual page links (e.g. 'https://instagram.com/myprofile')
     social: {
