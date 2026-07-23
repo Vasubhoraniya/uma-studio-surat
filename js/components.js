@@ -462,8 +462,8 @@
       if (submitBtn) { submitBtn.textContent = 'Sending...'; submitBtn.disabled = true; }
       if (statusEl)  statusEl.innerHTML = '';
 
-      /* ── POST to /send-enquiry ── */
-      fetch('/send-enquiry', {
+      /* ── POST to /api/send-enquiry (Vercel serverless function) ── */
+      fetch('/api/send-enquiry', {
         method  : 'POST',
         headers : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body    : JSON.stringify({
